@@ -4,6 +4,9 @@ import MidnightTimer from "./MidnightTimer"
 export default function Result(props){
 
     var todaysSong = props.todaysSong
+    const interval = React.useRef(null)
+    const song = React.useMemo(() => new Audio(todaysSong.preview), [todaysSong.preview]);
+    const [btnSrc, setBtnSrc] = React.useState("play_btn.png")
 
     var seconds = props.songSeconds / 1000
     var second_word = seconds === 1 ? "second" : "seconds"
@@ -38,6 +41,38 @@ export default function Result(props){
         window.open("https://www.facebook.com", "_blank")
     }
 
+    function playPreview(){
+        // const song = new Audio(todaysSong.preview);   
+        console.log(todaysSong, song.paused)
+        
+        if (!song.paused){
+            song.pause()
+            song.currentTime = 0
+            setBtnSrc("play_btn.png")
+            clearInterval(interval.current)
+            interval.current = null
+            return
+        }
+
+        song.pause()
+        song.currentTime = 0
+
+        var playPromise = song.play()
+
+        if (playPromise !== undefined){
+            playPromise.then(function() {
+                setBtnSrc("pause_btn.png")
+                setTimeout(() => { 
+                    song.pause(); 
+                    setBtnSrc("play_btn.png")
+                }, todaysSong.duration * 100);
+            })
+            .catch(error => {
+                console.log(error)
+            })
+        }
+    }
+
     return (
         <div>
             <div className="result-screen">
@@ -67,6 +102,14 @@ export default function Result(props){
                 
                 <p className="result-text result-comment">{result_comment}</p>
 
+                <img 
+                    className="game-play-btn game-buttons" 
+                    src={require("../assets/" + btnSrc)} 
+                    alt="play button" 
+                    width="40" 
+                    height="40" 
+                    onClick={playPreview}
+                />
                 <div className="game-buttons">
                     <button className="listen-deezer-btn" onClick={openDeezer}>Listen on Deezer</button>
                 </div>

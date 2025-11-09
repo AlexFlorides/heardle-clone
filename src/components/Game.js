@@ -284,17 +284,17 @@ export default function Game(props){
             ["guess_title_" + numSkips]: skip_icon
         }))
 
-        if (numSkips === 5){
-            setIsGameOver(true)
-            return
-        }
-
         song.pause()
         song.currentTime = 0
         setBtnSrc("play_btn.png")
         setLoadSeconds("00")
         clearInterval(interval.current)
         interval.current = null
+
+        if (numSkips === 5){
+            setIsGameOver(true)
+            return
+        }
 
         var elem2 = document.getElementById("time-2");
         var elem3 = document.getElementById("time-3");  
