@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/heardle-clone/static/css/main.6d239e9f.css",
-    "main.js": "/heardle-clone/static/js/main.948fc3a2.js",
+    "main.css": "/heardle-clone/static/css/main.7e6763af.css",
+    "main.js": "/heardle-clone/static/js/main.1e700bc8.js",
     "static/media/Circular.otf": "/heardle-clone/static/media/Circular.757b8ac8efa71be3fcd0.otf",
     "static/media/CircularLight.otf": "/heardle-clone/static/media/CircularLight.5e12df08ca91cc19e9e7.otf",
     "static/media/heardle.png": "/heardle-clone/static/media/heardle.f04ff26aa88ba0bf3163.png",
     "index.html": "/heardle-clone/index.html",
-    "main.6d239e9f.css.map": "/heardle-clone/static/css/main.6d239e9f.css.map",
-    "main.948fc3a2.js.map": "/heardle-clone/static/js/main.948fc3a2.js.map"
+    "main.7e6763af.css.map": "/heardle-clone/static/css/main.7e6763af.css.map",
+    "main.1e700bc8.js.map": "/heardle-clone/static/js/main.1e700bc8.js.map"
   },
   "entrypoints": [
-    "static/css/main.6d239e9f.css",
-    "static/js/main.948fc3a2.js"
+    "static/css/main.7e6763af.css",
+    "static/js/main.1e700bc8.js"
   ]
 }
